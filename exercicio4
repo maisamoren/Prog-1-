@@ -1,0 +1,26 @@
+// 4. Com base no programa do item 3, escreva outro programa em C que:
+// a. Após ter um vetor de tamanho n passado pelo usuário e preenchido com os
+// valores de índices em ordem decrescente, imprima o vetor do fim para o
+// começo, isto é, apresente o vetor na tela da posição n-1 até a posição 0.
+
+
+#include <stdio.h>
+
+int main () {
+
+    int n, i, v[1024];
+
+    scanf ("%d", &n);
+    if (n <= 1024) {
+        for (int i = 0; i < n; i++){
+            scanf ("%d", &v[i]);
+        }
+
+        do { 
+            printf ("%d\n", v[n]);
+            n = n - 1;
+        } while (n >= 0);
+    }
+    
+    return 0;
+}
