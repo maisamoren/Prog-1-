@@ -53,7 +53,7 @@ int main () {
 		verificarAssento (onibus, assento);
 	}
 	if (opcao == 2){
-		reservarAssento ();
+//		reservarAssento ();
 	}
 	if (opcao == 3){
 		imprimirMapa (onibus, fil, pol);
