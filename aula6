@@ -1,8 +1,7 @@
 #include <stdio.h>
 
-int fil = 12, pol = 4;
-int assento, i, j, opcao;
-char onibus [12][4];
+#define fil 12
+#define pol 4
 
 
 // verifica o assento do onibus
@@ -11,7 +10,7 @@ int verificarAssento(char onibus[fil][pol], int assento){
 	printf ("Digite o numero do assento: \n");
 	scanf ("%d", &assento);
 
-	return 0;
+	return assento;
 }
 
 
@@ -21,32 +20,41 @@ int reservarAssento(char onibus[fil][pol], int assento){
 }
 
 
-void imprimirMapa (char onibus[fil][pol], int fil, int pol){
+void imprimirMapa (char onibus[fil][pol]){
 	int i, j;
 	
 	for (i = 0; i < fil; i++){
 		for (j = 0; j < pol; j++){
-			printf ("%d\t", onibus[fil][pol]);
+			printf ("%c\t", onibus[i][j]);
 		}
 		printf ("\n");
 	}
 }
 
+//void inicia 
+
 
 // PROGRAMA PRINCIPAL *****************************************
 int main () {
 
+	int assento, opcao;
+	char onibus [fil][pol];
+	char x = 'o';
+
+
 // preencher os assentos
-// 	for (i = 0; i < fil; i++){
-//		for (j = 0; j < pol; j++){
-//			onibus[i][j] = '0';
-//		}
-//	}
+ 	for (int i = 0; i < fil; i++){
+		for (int j = 0; j < pol; j++){
+			onibus[i][j] = x;
+		}
+	}
 
 	printf ("Digite 1 para verificar se um dado assento está ocupado ou livre \n");
 	printf ("Digite 2 para reservar um assento livre \n");
 	printf ("Digite 3 para imprimir o mapa de assentos \n");
 	scanf ("%d", &opcao);
+
+	assento = 0;
 
 
 	if (opcao == 1){
@@ -56,7 +64,7 @@ int main () {
 //		reservarAssento ();
 	}
 	if (opcao == 3){
-		imprimirMapa (onibus, fil, pol);
+		imprimirMapa (onibus);
 	}
 
 	return 0;
