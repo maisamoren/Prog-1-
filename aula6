@@ -6,17 +6,26 @@
 
 // verifica o assento do onibus
 int verificarAssento(char onibus[fil][pol], int assento){
+	int f, p;
 
 	printf ("Digite o numero do assento: \n");
 	scanf ("%d", &assento);
 
-	return assento;
+	f = assento / 4;
+	p = assento % 4;
+
+	if (onibus[f][p] = 'o'){
+		return assento;
+	}
+	else {
+		return 0;
+	}
 }
 
 
 // reserva o assento do onibus
 int reservarAssento(char onibus[fil][pol], int assento){
-	return 0;
+
 }
 
 
@@ -35,7 +44,7 @@ void imprimirMapa (char onibus[fil][pol]){
 // PROGRAMA PRINCIPAL *****************************************
 int main () {
 
-	int assento, opcao;
+	int assento, opcao, aux;
 	char onibus [fil][pol];
 	char x = 'o';
 
@@ -48,7 +57,6 @@ int main () {
 	}
 
 	printf ("Digite 1 para verificar se um dado assento está ocupado ou livre \n");
-	printf ("Digite 2 para reservar um assento livre \n");
 	printf ("Digite 3 para imprimir o mapa de assentos \n");
 	scanf ("%d", &opcao);
 
@@ -56,11 +64,12 @@ int main () {
 
 
 	if (opcao == 1){
-		verificarAssento (onibus, assento);
+		aux = verificarAssento (onibus, assento);
+		if (aux > 0){
+			reservarAssento (onibus, aux);
+		}
 	}
-	if (opcao == 2){
-//		reservarAssento ();
-	}
+	
 	if (opcao == 3){
 		imprimirMapa (onibus);
 	}
