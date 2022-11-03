@@ -31,8 +31,6 @@ void imprimirMapa (char onibus[fil][pol]){
 	}
 }
 
-//void inicia 
-
 
 // PROGRAMA PRINCIPAL *****************************************
 int main () {
