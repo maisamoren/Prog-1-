@@ -1,0 +1,35 @@
+// 7. Escreva um programa em C que conte quantos elementos distintos há em um vetor e
+// apresente cada elemento e sua frequência como saída.
+// a. Exemplo, para v[5] = {1, 1, 1, 3, 3}, a saída deve ser:
+// Elemento 1 apareceu 3 vezes
+// Elemento 3 apareceu 2 vezes
+
+
+#include <stdio.h>
+
+int main() {
+    int n, i, aux,j;
+    int cont = 0;
+
+    scanf ("%d", &n); 
+    int v[n];
+
+   //lendo vetor 
+    for (int i = 0; i < n; i++){
+        scanf ("%d", &v[i]);
+    }
+    j=0;
+    while (j < n){
+        aux = v[j];
+        for (i = 0; i < n; i ++){
+            if (aux == v[i]){
+                cont++;
+                j++;
+            }
+        }
+        printf ("Elemento %i apareceu %d vezes\n", aux, cont);
+        cont=0;
+    }
+
+    return 0;
+}
