@@ -1,0 +1,28 @@
+// 10. Escreva um programa em C que, dado um vetor preenchido, imprime a quantidade de
+// elementos pares e ímpares.
+
+
+#include <stdio.h>
+
+int main () {
+    int n, i, j;
+    int par, impar = 0;
+
+    scanf ("%d", &n); 
+    int v[n];
+
+    for (int i = 0; i < n; i++){
+        scanf ("%d", &v[i]);
+        if (v[i]%2 == 0) {
+            par = par + 1;
+        }
+        else {
+            impar = impar + 1;
+        }
+    }
+
+    printf ("Pares = %d\n", par);
+    printf ("Impares = %d\n", impar);
+
+    return 0;
+}
