@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-int lin = 12, col = 4;
+int fil = 12, pol = 4;
 int assento, i, j, opcao;
 char onibus [12][4];
 
 
 // verifica o assento do onibus
-int verificarAssento(char onibus[lin][col], int assento){
+int verificarAssento(char onibus[fil][pol], int assento){
 
 	printf ("Digite o numero do assento: \n");
 	scanf ("%d", &assento);
@@ -16,17 +16,17 @@ int verificarAssento(char onibus[lin][col], int assento){
 
 
 // reserva o assento do onibus
-int reservarAssento(char onibus[][], int assento){
+int reservarAssento(char onibus[fil][pol], int assento){
 	return 0;
 }
 
 
-void imprimirMapa (char onibus[lin][col], int lin, int col){
+void imprimirMapa (char onibus[fil][pol], int fil, int pol){
 	int i, j;
 	
-	for (i = 0; i < lin; i++){
-		for (j = 0; j < col; j++){
-			printf ("%d\t", onibus[lin][col]);
+	for (i = 0; i < fil; i++){
+		for (j = 0; j < pol; j++){
+			printf ("%d\t", onibus[fil][pol]);
 		}
 		printf ("\n");
 	}
@@ -37,8 +37,8 @@ void imprimirMapa (char onibus[lin][col], int lin, int col){
 int main () {
 
 // preencher os assentos
-// 	for (i = 0; i < lin; i++){
-//		for (j = 0; j < col; j++){
+// 	for (i = 0; i < fil; i++){
+//		for (j = 0; j < pol; j++){
 //			onibus[i][j] = '0';
 //		}
 //	}
@@ -56,7 +56,7 @@ int main () {
 		reservarAssento ();
 	}
 	if (opcao == 3){
-		imprimirMapa (onibus, lin, col);
+		imprimirMapa (onibus, fil, pol);
 	}
 
 	return 0;
