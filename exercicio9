@@ -1,0 +1,34 @@
+// 9. Escreva um programa em C que mostre, para um dado vetor:
+// a. Quantos e quais são os elementos repetidos neste vetor;
+
+
+// exercicio 9
+#include <stdio.h>
+
+int main() {
+    int n, i, aux, j, num;
+    int cont = 0;
+
+    scanf ("%d", &n); 
+    int v[n]; 
+    int v2[n];
+
+   //lendo vetor 
+    for (int i = 0; i < n; i++){
+        scanf ("%d", &v[i]);
+    }
+
+    for (i = 0; i < n; i++){
+        for (j = i+1; j < n; j++){
+            if (v[i] == v[j]){
+                cont++;
+                num = v[i];
+            }
+        }
+    }
+
+    printf ("Quantidade = %d\n", cont);
+    printf ("Qual numero: %d\n", num);
+
+    return 0;
+}
