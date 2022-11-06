@@ -1,5 +1,7 @@
-#include <stdio.h>
+// Exercico Aula 6
+// GRR20204081
 
+#include <stdio.h>
 #define fil 12
 #define pol 4
 
@@ -14,7 +16,7 @@ int verificarAssento(char onibus[fil][pol], int assento){
 	f = assento / 4;
 	p = assento % 4;
 
-	if (onibus[f][p] = 'o'){
+	if (onibus[f][p] == 'o'){
 		return assento;
 	}
 	else {
@@ -22,13 +24,23 @@ int verificarAssento(char onibus[fil][pol], int assento){
 	}
 }
 
-
 // reserva o assento do onibus
 int reservarAssento(char onibus[fil][pol], int assento){
+    int f, p;
 
+    f = assento / 4;
+	p = assento % 4;
+
+    if (onibus[f][p] == 'o'){
+		onibus[f][p] = 'x';
+        return 1;
+	}
+    else {
+        return 0;
+    }
 }
 
-
+//imprimir o mapa do onibus
 void imprimirMapa (char onibus[fil][pol]){
 	int i, j;
 	
@@ -48,7 +60,6 @@ int main () {
 	char onibus [fil][pol];
 	char x = 'o';
 
-
 // preencher os assentos
  	for (int i = 0; i < fil; i++){
 		for (int j = 0; j < pol; j++){
@@ -56,23 +67,30 @@ int main () {
 		}
 	}
 
-	printf ("Digite 1 para verificar se um dado assento está ocupado ou livre \n");
-	printf ("Digite 3 para imprimir o mapa de assentos \n");
-	scanf ("%d", &opcao);
+    opcao = 10;
+    while (opcao != 0){
 
-	assento = 0;
+        printf ("\n");
+	    printf ("Digite 1 para verificar se um dado assento está ocupado ou livre \n");
+	    printf ("Digite 3 para imprimir o mapa de assentos \n");
+	    printf ("Digite 0 para sair do programa \n");
+        scanf ("%d", &opcao);
 
+	    assento = 0;
 
-	if (opcao == 1){
-		aux = verificarAssento (onibus, assento);
-		if (aux > 0){
-			reservarAssento (onibus, aux);
-		}
-	}
+	    if (opcao == 1){
+		    aux = verificarAssento (onibus, assento);
+		    if (aux > 0){
+			    reservarAssento (onibus, aux);
+		    }
+	    }
 	
-	if (opcao == 3){
-		imprimirMapa (onibus);
-	}
+	    if (opcao == 3){
+		    imprimirMapa (onibus);
+	    }
 
-	return 0;
+        if (opcao == 0){
+	        return 0;
+        }
+    }
 }
