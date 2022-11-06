@@ -1,3 +1,6 @@
+// Exercicio da Aula 5
+// GRR20204081 - Maisa Girardi
+
 # include <stdio.h>
 
 int main (){
