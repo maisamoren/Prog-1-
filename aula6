@@ -2,8 +2,33 @@
 // GRR20204081
 
 #include <stdio.h>
-#define fil 12
+#define fil 13
 #define pol 4
+
+// preencher os assentos
+void PreencherAssento (char onibus[fil][pol]){
+	char x = 'o';
+
+ 	for (int i = 0; i < fil; i++){
+		for (int j = 0; j < pol; j++){
+			if ((i == 0) && (j == 0)) {
+				onibus[i][j] = ' ';
+			}
+			if ((i == 12) && (j == 1)){
+				onibus[i][j] = ' '; 
+			}
+			if ((i == 12) && (j == 2)){
+				onibus[i][j] = ' ';
+			}
+			if ((i == 12) && (j == 3)){
+				onibus[i][j] = ' ';
+			}
+			else {
+				onibus[i][j] = x;
+			}
+		}
+	}
+}
 
 
 // verifica o assento do onibus
@@ -56,16 +81,10 @@ void imprimirMapa (char onibus[fil][pol]){
 // PROGRAMA PRINCIPAL *****************************************
 int main () {
 
-	int assento, opcao, aux;
+	int assento, opcao, aux, reservado;
 	char onibus [fil][pol];
-	char x = 'o';
 
-// preencher os assentos
- 	for (int i = 0; i < fil; i++){
-		for (int j = 0; j < pol; j++){
-			onibus[i][j] = x;
-		}
-	}
+	PreencherAssento (onibus);
 
     opcao = 10;
     while (opcao != 0){
@@ -81,7 +100,8 @@ int main () {
 	    if (opcao == 1){
 		    aux = verificarAssento (onibus, assento);
 		    if (aux > 0){
-			    reservarAssento (onibus, aux);
+			    reservado = reservarAssento (onibus, aux);
+			    printf ("%d\n", reservado);
 		    }
 	    }
 	
