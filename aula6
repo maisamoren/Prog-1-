@@ -1,13 +1,14 @@
 // Exercicio Aula 6
-// GRR20204081 - Maisa Carolina Moreno Girardi
+// GRR20204081 - Maisa Girardi
 
 #include <stdio.h>
 #define fil 13
 #define pol 4
 
+
 // preencher os assentos
 void PreencherAssento (char onibus[fil][pol]){
-	char x = 'o';
+	char x = '0';
 
  	for (int i = 0; i < fil; i++){
 		for (int j = 0; j < pol; j++){
@@ -26,6 +27,7 @@ void PreencherAssento (char onibus[fil][pol]){
 	}
 }
 
+
 // verifica o assento do onibus
 int verificarAssento(char onibus[fil][pol], int assento){
 	int f, p;
@@ -36,13 +38,12 @@ int verificarAssento(char onibus[fil][pol], int assento){
 	f = assento / 4;
 	p = assento % 4;
 
-	if (onibus[f][p] == 'o'){
+	if (onibus[f][p] == '0')
 		return assento;
-	}
-	else {
+	else 
 		return 0;
-	}
 }
+
 
 // reserva o assento do onibus
 int reservarAssento(char onibus[fil][pol], int assento){
@@ -51,28 +52,30 @@ int reservarAssento(char onibus[fil][pol], int assento){
    f = assento / 4;
 	p = assento % 4;
 
-   if (onibus[f][p] == 'o'){
-		onibus[f][p] = 'x';
+   if (onibus[f][p] == '0'){
+		onibus[f][p] = 'X';
       return 1;
 	}
-   else {
+   else 
       return 0;
-   }
 }
+
 
 //imprimir o mapa do onibus
 void imprimirMapa (char onibus[fil][pol]){
 	int i, j;
+
 	for (i = 0; i < fil; i++){
-		for (j = 0; j < pol; j++){
+		for (j = 0; j < pol; j++)
 			printf ("%c\t", onibus[i][j]);
-		}
 		printf ("\n");
 	}
 }
 
+
 // MAIN PROGRAM *********************************************
 int main () {
+
 	int assento, opcao, aux, reservado;
 	char onibus [fil][pol];
 
@@ -95,11 +98,11 @@ int main () {
 			   printf ("%d\n", reservado);
 		   }
 	   }
-	   if (opcao == 3){
+
+	   if (opcao == 3)
 		   imprimirMapa (onibus);
-	   }
-      if (opcao == 0){
+
+      if (opcao == 0)
 	      return 0;
-      }
    }
 }
