@@ -71,7 +71,7 @@ void imprimirMapa (char onibus[fil][pol]){
 	}
 }
 
-// PROGRAMA PRINCIPAL *****************************************
+// MAIN PROGRAM *********************************************
 int main () {
 	int assento, opcao, aux, reservado;
 	char onibus [fil][pol];
