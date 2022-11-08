@@ -1,5 +1,5 @@
-// Exercico Aula 6
-// GRR20204081
+// Exercicio Aula 6
+// GRR20204081 - Maisa Carolina Moreno Girardi
 
 #include <stdio.h>
 #define fil 13
@@ -15,21 +15,11 @@ void PreencherAssento (char onibus[fil][pol]){
 					onibus[i][j] = ' ';
 			}
 			else {
-				if ((i == 12) && (j == 1)){
+				if ((i == 12) && ((j == 1) || (j == 2) || (j == 3))){
 					onibus[i][j] = ' ';
 				}
 				else {
-					if ((i == 12) && (j == 2)){
-						onibus[i][j] = ' ';
-					}
-					else {
-						if ((i == 12) && (j == 3)){
-							onibus[i][j] = ' ';
-						}
-						else {
-							onibus[i][j] = x;
-						}
-					}
+					onibus[i][j] = x;
 				}
 			}
 		}
@@ -73,7 +63,6 @@ int reservarAssento(char onibus[fil][pol], int assento){
 //imprimir o mapa do onibus
 void imprimirMapa (char onibus[fil][pol]){
 	int i, j;
-	
 	for (i = 0; i < fil; i++){
 		for (j = 0; j < pol; j++){
 			printf ("%c\t", onibus[i][j]);
@@ -84,12 +73,12 @@ void imprimirMapa (char onibus[fil][pol]){
 
 // PROGRAMA PRINCIPAL *****************************************
 int main () {
-
 	int assento, opcao, aux, reservado;
 	char onibus [fil][pol];
 
 	PreencherAssento (onibus);
 
+	assento = 0;
    opcao = 10;
    while (opcao != 0){
 
@@ -99,8 +88,6 @@ int main () {
 	   printf ("Digite 0 para sair do programa \n");
       scanf ("%d", &opcao);
 
-	   assento = 0;
-
 	   if (opcao == 1){
 		   aux = verificarAssento (onibus, assento);
 		   if (aux > 0){
@@ -108,11 +95,9 @@ int main () {
 			   printf ("%d\n", reservado);
 		   }
 	   }
-	
 	   if (opcao == 3){
 		   imprimirMapa (onibus);
 	   }
-
       if (opcao == 0){
 	      return 0;
       }
