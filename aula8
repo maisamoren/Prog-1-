@@ -7,51 +7,50 @@ int soma (int *ptr_b, int *ptr_c){
 }
 
 int main (){
-// o endereço de M
+// o endereço de M:
 	int m = 10;
 	int *ptr_m = &m;
 	printf("o endereço de m é: %p\n", ptr_m);
 	printf ("\n");
 
-// Z apontando para M
+// Z apontando para M:
 	int *z = ptr_m;
     printf ("o valor armazenado em z é: %p\n", z);
 	printf ("\n");
 
-// valor armazenado no endereço apontado por Z
+// valor armazenado no endereço apontado por Z:
 	printf("o valor armazenado em z é: %d\n", *z);
 	printf ("\n");
 
-// endereço de N
+// endereço de N:
 	int n;
 	int *ptr_n = &n;
 	printf("o endereço de n é: %p\n", ptr_n);
 	printf ("\n");
 
-// O recebe o valor de M
+// O recebe o valor de M:
 	int o;
     o = *ptr_m;
     printf("o valor de o é: %d\n", o);
 	printf ("\n");
 	
-// o endereço de Z
+// o endereço de Z:
 	printf("o endereço de z: %p\n", z);
     printf ("\n");
 
-// endereço de N recebe o endereço de O
+// endereço de N recebe o endereço de O:
 	// &n = &o;
     // Não é possível resolver isso pois, 
     // duas variavéis não podem ter o mesmo 
     // endereço.  
 	
-// N recebe o endereço de O
+// N recebe o endereço de O:
     // n = &o;
-    // Não é possível resolver isso pois, 
-    // n é um valor inteiro e não é possível 
-    // adicionar um endereço (pois contém char's) 
-    // em um inteiro. Além disso o endereço tem o 
-    // dobro de bytes de tamanho comparado com um 
-    // inteiro. 
+    // Não é possível resolver isso pois, n é 
+    // valor inteiro e não é possível adicionar
+    // um endereço (pois contém char's) em um 
+    // inteiro. Além disso o endereço tem o dobro
+    // de bytes de tamanho comparado a um inteiro.
 
 // ex. 1 - soma dois numeros usando ponteiros
     int a = 5, b = 10;
@@ -65,10 +64,32 @@ int main (){
     printf ("o valor da soma é: %d\n", soma (&b, &c));
     printf ("\n");
 
-// ex. 3 - encontre o maior entre 2 numeros usando ptr
+// ex. 3 - encontre o maior entre 2 numeros usando ptrs
+    int d, e;
+    printf ("Digite um valor para d: \n");
+    scanf ("%d", &d);
+    printf ("Digite um valor para e: \n");
+    scanf ("%d", &e);
 
-// ex.4 - preencha um vetor e mostre o conteudo usando ptr
+    int *ptr_d = &d, *ptr_e = &e;
+    if (*ptr_d > *ptr_e)
+        printf ("o maior valor é: %d\n", *ptr_d);
+    else
+        printf ("o maior valor é: %d\n", *ptr_e);
+    printf ("\n");
 
+// ex.4 - preencha um vetor e mostre o conteudo usando ptrs
+    int x;
+    printf ("Digite um valor para o índice do vetor: \n");
+    scanf ("%d", &x);
+
+    int vetor [x], *ptr_v;
+    for (int i = 0; i < x; i++)
+        scanf ("%d", &vetor[i]);
+
+    int *ptr_v = vetor;
+    for (int j = 0; j < x; j++)
+        printf ("o valor de V[%i] = %i\r\n", j, *(ptr_v + j));
 
 	return 0;
 }
