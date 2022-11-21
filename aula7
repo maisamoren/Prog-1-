@@ -1,25 +1,57 @@
 #include <stdio.h>
 
-void troca (int *ptr_a, int *ptr_b){
-	int aux = 0;
-
-	aux = *ptr_b;
-	*ptr_b = *ptr_a;
-	*ptr_a = aux;
-
-	printf ("a: %d\n", *ptr_a);
-	printf ("b: %d\n", *ptr_b); 
-}
-
-
 int main (){
 
-	int a, b;
+// o endereço de M
+	int m = 10;
+	int *ptr_m = &m;
+	printf("o endereço de m é: %p\n", ptr_m);
+	printf ("\n");
 
-	scanf ("%d", &a);
-	scanf ("%d", &b);
+// Z apontando para M
+	int *z = ptr_m;
+    printf ("o valor armazenado em z é: %p\n", z);
+	printf ("\n");
 
-	troca (&a, &b);
+// valor armazenado no endereço apontado por Z
+	printf("o valor armazenado em z é: %d\n", *z);
+	printf ("\n");
+
+// endereço de N
+	int n;
+	int *ptr_n = &n;
+	printf("o endereço de n é: %p\n", ptr_n);
+	printf ("\n");
+
+// O recebe o valor de M
+	int o;
+    o = *ptr_m;
+    printf("o valor de o é: %d\n", o);
+	printf ("\n");
+	
+// o endereço de Z
+	printf("o endereço de z: %p\n", z);
+    printf ("\n");
+
+// endereço de N recebe o endereço de O
+	int *ptr_o = &o;
+    ptr_n = ptr_o;
+    printf ("o valor do endereço de n é: %p\n", ptr_n);
+    printf ("\n");
+	
+// N recebe o endereço de O
+    // Não é possível resolver isso pois, 
+    // n é um valor inteiro e não é possível 
+    // adicionar um endereço (pois contém char's) 
+    // em um inteiro. Além disso o endereço tem o 
+    // dobro de bytes de tamanho comparado com um 
+    // inteiro. 
+
+// exercicio 1 - soma dois numeros usando ponteiros
+    int a = 5, b = 10;
+    int *ptr_a = &a, *ptr_b = &b;
+    *ptr_a = *ptr_a + *ptr_b;
+    printf ("o valor da soma é: %d\n", *ptr_a);
 
 	return 0;
 }
