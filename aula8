@@ -1,42 +1,66 @@
 #include <stdio.h>
 
-
 int main (){
 
-// resolução da letra a
+// o endereço de M
 	int m = 10;
 	int *ptr_m = &m;
 	printf("o endereço de m é: %p\n", ptr_m);
 	printf ("\n");
 
-// resolução da letra b
-	//?
-	// printf ("\n");
+// Z apontando para M
+	int *z = ptr_m;
+    printf ("o valor armazenado em z é: %p\n", z);
+	printf ("\n");
 
-// resolução da letra c
+// valor armazenado no endereço apontado por Z
 	printf("o valor armazenado em z é: %d\n", *z);
 	printf ("\n");
 
-// resolução da letra d
+// endereço de N
 	int n;
-	int ptr_n = &n;
+	int *ptr_n = &n;
 	printf("o endereço de n é: %p\n", ptr_n);
 	printf ("\n");
 
-// resolução da letra e
-	int o, ptr_o;
-	ptr_n = ptr_o;
-	printf("o novo endereço de n é: %p\n", ptr_n);
+// O recebe o valor de M
+	int o;
+    o = *ptr_m;
+    printf("o valor de o é: %d\n", o);
 	printf ("\n");
 	
-// resolução da letra f
-	o = m;
-	printf("o valor de o é: %d\n", o);
-	printf ("\n");
+// o endereço de Z
+	printf("o endereço de z: %p\n", z);
+    printf ("\n");
 
-// resolução da letra g
-	// ?
-	// printf ("\n");
+// endereço de N recebe o endereço de O
+	// &n = &o;
+    // Não é possível resolver isso pois, 
+    // duas variavéis não podem ter o mesmo 
+    // endereço.  
+	
+// N recebe o endereço de O
+    // n = &o;
+    // Não é possível resolver isso pois, 
+    // n é um valor inteiro e não é possível 
+    // adicionar um endereço (pois contém char's) 
+    // em um inteiro. Além disso o endereço tem o 
+    // dobro de bytes de tamanho comparado com um 
+    // inteiro. 
+
+// ex. 1 - soma dois numeros usando ponteiros
+    int a = 5, b = 10;
+    int *ptr_a = &a, *ptr_b = &b;
+    *ptr_a = *ptr_a + *ptr_b;
+    printf ("o valor da soma é: %d\n", *ptr_a);
+
+// ex. 2 - soma 2 numeros usando chamada por referencia
+    soma ()
+
+// ex. 3 - encontre o maior entre 2 numeros usando ptr
+
+// ex.4 - preencha um vetor e mostre o conteudo usando ptr
+
 
 	return 0;
 }
