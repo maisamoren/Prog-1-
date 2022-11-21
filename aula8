@@ -1,7 +1,12 @@
 #include <stdio.h>
 
-int main (){
+int soma (int *ptr_b, int *ptr_c){
+    int s = 0;
+    s =  *ptr_b + *ptr_c;
+    return s;
+}
 
+int main (){
 // o endereço de M
 	int m = 10;
 	int *ptr_m = &m;
@@ -53,9 +58,12 @@ int main (){
     int *ptr_a = &a, *ptr_b = &b;
     *ptr_a = *ptr_a + *ptr_b;
     printf ("o valor da soma é: %d\n", *ptr_a);
+    printf ("\n");
 
 // ex. 2 - soma 2 numeros usando chamada por referencia
-    soma ()
+    int c = 8;
+    printf ("o valor da soma é: %d\n", soma (&b, &c));
+    printf ("\n");
 
 // ex. 3 - encontre o maior entre 2 numeros usando ptr
 
