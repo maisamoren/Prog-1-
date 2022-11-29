@@ -1,0 +1,14 @@
+// COMPILAR NO LINUX
+
+// para programas com sqrt ou exponencial
+  # include <math.h>
+      gcc *.c -lm -Wall
+  porém avisa no warning
+      
+// separar em files !!
+
+// compilar programas 
+    gcc *.c -o -Wall <nome>
+    
+// -------------------------------------------------------------
+
