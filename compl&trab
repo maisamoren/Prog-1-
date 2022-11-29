@@ -13,4 +13,35 @@
 // procurar sobre srand (rand)
     
 // -------------------------------------------------------------
+// HEADER
+#include <stdio.h>
+#define MAX = 99
 
+void VetorVazio (int *v) {
+	if (*v == -1) {
+		return 1;
+
+	return 0;
+}
+
+void Tamanho (int a){
+	printf ("o tamanho do conjunto é: %d\n", a);
+}
+
+void InsertOrder (){
+	int n;
+	int vetor;
+	printf ("Digite um tamanho para o conjutno: %d\n", n);
+
+	for (int i = 0; i < n; i++) {
+		scanf ()
+	}
+
+}
+
+// MAIN
+#include <stdio.h>
+
+int main (){
+	return 0;
+}
