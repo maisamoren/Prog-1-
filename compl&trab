@@ -15,7 +15,7 @@
 // -------------------------------------------------------------
 // HEADER
 #include <stdio.h>
-#define MAX = 99
+#define MAX = 100
 
 void VetorVazio (int *v) {
 	if (*v == -1) {
@@ -29,12 +29,20 @@ void Tamanho (int a){
 }
 
 void InsertOrder (){
-	int n;
+	int n, aux, j;
 	int vetor;
-	printf ("Digite um tamanho para o conjutno: %d\n", n);
+	printf ("Digite um tamanho para o conjunto: %d\n", n);
 
 	for (int i = 0; i < n; i++) {
-		scanf ()
+		scanf ("%d", &vetor[i]);
+
+		aux = vetor[i];
+		j = i - 1;
+		while (j>= 0) && (vetor[j] > aux){
+			vetor[j+1] = vetor[j];
+			j--;
+		}
+		vetor[j+1] = aux;
 	}
 
 }
