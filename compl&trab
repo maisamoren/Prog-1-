@@ -1,70 +1,150 @@
-// COMPILAR NO LINUX
-
-// para programas com sqrt ou exponencial
-  # include <math.h>
-      gcc *.c -lm -Wall
-  porém avisa no warning
-      
-// separar em files !!
-
-// compilar programas 
-    gcc *.c -o -Wall <nome>
-    
-// procurar sobre srand (rand)
-    
-// -------------------------------------------------------------
-// HEADER
+// LIBCONJUNTO.H
 #include <stdio.h>
-#define MAX = 100
+#include <stdlib.h>
+#include <time.h>
 
-void VetorVazio (int *v) {
-	if (*v == -1) {
-		return 1;
-
-	return 0;
-}
-
-void Tamanho (int a){
-	printf ("o tamanho do conjunto é: %d\n", a);
-}
-
-void InsertOrder (){
-	int n, aux, j;
-	int vetor;
-	printf ("Digite um tamanho para o conjunto: %d\n", n);
-
-	for (int i = 0; i < n; i++) {
-		scanf ("%d", &vetor[i]);
-
-		aux = vetor[i];
-		j = i - 1;
-		while (j>= 0) && (vetor[j] > aux){
-			vetor[j+1] = vetor[j];
-			j--;
-		}
-		vetor[j+1] = aux;
-	}
-
-}
-
-
-
-// MAIN 
-#include <stdio.h>
-
-int main (){
-	int menu;
+int Imprime (){ 
+	printf ("BEM VINDO XD ");
+	printf ("\n");
 
 	printf ("MENU: \n");
-	printf ("\n ! OBSERVAÇÃO: o conjunto deve ser ed elementos inteiros positivos. \n");
+	printf ("\n ! OBSERVAÇÃO: o conjunto deve ser de elementos inteiros positivo. \n");
+ 	printf ("\n");
+
 	printf ("Digite 1 para verificar se um conjunto eh vazio. \n");
 	printf ("Digite 2 para devolver o tamanho de um conjunto. \n");
 	printf ("Digite 3 para preencher um conjunto. \n");
 	printf ("Digite 4 para criar um conjunto de elementos aleatorios. \n");
 	printf ("Digite 5 para ver um conjunto UNIAO de dois outros conjuntos. \n");
 	printf ("Digite 6 para ver um conjunto INTERSECCAO de dois outros conjuntos. \n");
+	printf ("Digite 0 para sair do programa. \n");
+}
 
-	scanf ("%d", &menu);
+
+int Ler (){ 
+	int m;
+
+	scanf ("%d", &m);
+	return m;
+}
+
+
+int VetorVazio (int *v){ 
+	if (*v == -1) {
+		return 1;
 
 	return 0;
 }
+
+
+int Tamanho (int tam){ 
+	printf ("o tamanho do conjunto é: %d\n", tam);
+	return tam;
+}
+
+
+void InsertOrder (int vetor, int tam){ 
+	int aux, j, cha;
+
+	for (int i = 0; i < tam; i++) {
+		scanf ("%d", &vetor[i]);
+
+		aux = vetor[i];
+		j = i - 1;
+		while ((j>= 0) && (vetor[j] > aux)){
+			vetor[j+1] = vetor[j];
+			j--;
+		}
+		vetor[j+1] = aux;
+	}
+
+	printf ("\n");
+	printf ("Para imprimir o vetor, digite 1. Caso contrário digite 0. \n");
+	scanf ("%d\n", &cha);
+
+	if (cha == 1)
+		for (int j = 0; j < tam; j++){
+    		printf ("%d ", vetor[j]);
+		}
+}
+
+
+void ElemAleatorio (int tam){ 
+	int aux, j, cha;
+	int vetor [tam];
+  
+	srand( (unsigned)time(NULL));
+	
+	for (int i = 0; i < tam ; i++) {
+		vetor[i] = rand() % 101;
+
+		aux = vetor[i];
+		j = i - 1;
+		while ((j>= 0) && (vetor[j] > aux)){
+			vetor[j+1] = vetor[j];
+			j--;
+		}
+		vetor[j+1] = aux;
+	}
+
+	printf ("\n");
+	printf ("Para imprimir o vetor, digite 1. Caso contrário digite 0. \n");
+	scanf ("%d\n", &cha);
+
+	if (cha == 1){
+		for (int j = 0; j < tam; j++){
+    		printf ("%d ", vetor[j]);
+		}
+	}
+}
+
+
+int Uniao (){ 
+	InsertOrder (conj1, tam);
+	InsertOrder (conj2, tam);
+
+}
+
+
+int Intersec (int c1[], int c2[], int tam) { 
+	int c3[tam];
+	int i = 0, j = 0, k = 0; 
+
+	ElemAleatorio (c1, tam);
+	ElemAleatorio (c2, tam);
+
+	while ((i < tam) && (j < tam)){
+		if (c1[i] < c2[j])
+			i++;
+		else {
+			if (c1[i] > c2[j])
+				j++;
+			else { // O ELEMENTO ESTEJA NOS DOIS CONJUNTOS
+				c3[k] = c1[i];
+				k++;
+				i++;
+				j++;
+			}
+		}
+	}
+
+
+	for (int n = 0; n < tam; n++){
+    	printf ("%d ", c3[n]);
+	}
+}
+
+
+// MAIN PROGRAM ------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+int main (){
+	int menu, tam;
+
+	Imprime ();
+	menu = Ler ();
+
+	// if's
+
+	return 0;
+} 
