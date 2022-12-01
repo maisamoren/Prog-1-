@@ -39,9 +39,24 @@ void InsertOrder (){
 
 }
 
-// MAIN
+
+
+// MAIN 
 #include <stdio.h>
 
 int main (){
+	int menu;
+
+	printf ("MENU: \n");
+	printf ("\n ! OBSERVAÇÃO: o conjunto deve ser ed elementos inteiros positivos. \n");
+	printf ("Digite 1 para verificar se um conjunto eh vazio. \n");
+	printf ("Digite 2 para devolver o tamanho de um conjunto. \n");
+	printf ("Digite 3 para preencher um conjunto. \n");
+	printf ("Digite 4 para criar um conjunto de elementos aleatorios. \n");
+	printf ("Digite 5 para ver um conjunto UNIAO de dois outros conjuntos. \n");
+	printf ("Digite 6 para ver um conjunto INTERSECCAO de dois outros conjuntos. \n");
+
+	scanf ("%d", &menu);
+
 	return 0;
 }
