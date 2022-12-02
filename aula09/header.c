@@ -49,11 +49,13 @@ int ImprimeVetor (int *vetor, int tam){ //--------------------------------------
 
 
 // ARRUMAR
-void VetorVazio (int *v, int tam){ //------------------------------------------------------------------------
-	if (*v == -1) {
+void VetorVazio (int *t){ //------------------------------------------------------------------------
+	
+	if (t == 0) {
 		printf ("O vetor é vazio. \n");
-
-	printf ("O vetor não é vazio. \n");
+	}
+	else {
+		printf ("O vetor não é vazio. \n");
 	}
 }
 
