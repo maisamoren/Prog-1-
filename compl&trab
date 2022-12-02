@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int Imprime (){ 
+int Imprime (){ //---------------------------------------------------------------------------------
 	printf ("BEM VINDO XD ");
 	printf ("\n");
 
@@ -21,47 +21,18 @@ int Imprime (){
 }
 
 
-int Ler (){ 
+int Ler (){ //-------------------------------------------------------------------------------------
 	int m;
-
 	scanf ("%d", &m);
 	return m;
 }
 
 
-int VetorVazio (int *v){ 
-	if (*v == -1) {
-		return 1;
-
-	return 0;
-}
-
-
-int Tamanho (int tam){ 
-	printf ("o tamanho do conjunto é: %d\n", tam);
-	return tam;
-}
-
-
-void InsertOrder (int vetor, int tam){ 
-	int aux, j, cha;
-
-	for (int i = 0; i < tam; i++) {
-		scanf ("%d", &vetor[i]);
-
-		aux = vetor[i];
-		j = i - 1;
-		while ((j>= 0) && (vetor[j] > aux)){
-			vetor[j+1] = vetor[j];
-			j--;
-		}
-		vetor[j+1] = aux;
-	}
-
+void ImprimeVetor (){ //---------------------------------------------------------------------------
+	int cha;
 	printf ("\n");
 	printf ("Para imprimir o vetor, digite 1. Caso contrário digite 0. \n");
 	scanf ("%d\n", &cha);
-
 	if (cha == 1)
 		for (int j = 0; j < tam; j++){
     		printf ("%d ", vetor[j]);
@@ -69,15 +40,25 @@ void InsertOrder (int vetor, int tam){
 }
 
 
-void ElemAleatorio (int tam){ 
-	int aux, j, cha;
-	int vetor [tam];
-  
-	srand( (unsigned)time(NULL));
-	
-	for (int i = 0; i < tam ; i++) {
-		vetor[i] = rand() % 101;
+void VetorVazio (int *v){ //------------------------------------------------------------------------
+	if (*v == -1) {
+		printf ("O vetor é vazio. \n");
 
+	printf ("O vetor não é vazio. \n");
+}
+
+
+int Tamanho (int tam){ //--------------------------------------------------------------------------
+	printf ("o tamanho do conjunto é: %d\n", tam);
+	return tam;
+}
+
+
+void InsertOrder (int *vetor, int tam){ //----------------------------------------------------------
+	int aux, j;
+	printf ("Digite um vetor de tamanho %d: \n", tam);
+	for (int i = 0; i < tam; i++) {
+		scanf ("%d", &vetor[i]);
 		aux = vetor[i];
 		j = i - 1;
 		while ((j>= 0) && (vetor[j] > aux)){
@@ -86,33 +67,97 @@ void ElemAleatorio (int tam){
 		}
 		vetor[j+1] = aux;
 	}
+	// imprimevetor
+}
 
-	printf ("\n");
-	printf ("Para imprimir o vetor, digite 1. Caso contrário digite 0. \n");
-	scanf ("%d\n", &cha);
 
-	if (cha == 1){
-		for (int j = 0; j < tam; j++){
-    		printf ("%d ", vetor[j]);
+int ElemAleatorio (int tam){ //-------------------------------------------------------------------
+	int aux, j;
+	int vetor [tam];
+	srand((unsigned)time(NULL));
+	for (int i = 0; i < tam ; i++) {
+		vetor[i] = rand() % 101;
+		aux = vetor[i];
+		j = i - 1;
+		while ((j>= 0) && (vetor[j] > aux)){
+			vetor[j+1] = vetor[j];
+			j--;
 		}
+		vetor[j+1] = aux;
+	}
+	return vetor;
+	// imprimevetor
+}
+
+
+void Uniao (tam){ //-----------------------------------------------------------------------------------
+	int c1[tam], c2[tam], c3[tam];
+	int i = 0, j = 0, k = -1; 
+
+// os conjuntos c1 e c2 serao dados pelo usuário 
+	InsertOrder (c1, tam);
+	InsertOrder (c2, tam);
+
+// calculo da uniao
+	while ((i < tam) && (j < tam)){
+		k++;
+		if (c1[i] < c2[j]){
+			c3[k] = c1[i];
+			i++;
+		}
+		else {
+			if (c1[i] > c2[j]){
+				c3[k] = c2[j];
+				j++;
+			}
+			else {
+				c3[k] = c1[i];
+				i++;
+				j++;
+			}
+		}
+	}
+
+	for (int l = 0; l < tam; l++){
+		k++;
+		c3[k] = c1[l];
+	}
+	for (int l = 1; l < tam; l++){
+		k++;
+		c3[k] = c2[l];
+	}
+}
+
+// imprimir os vetores
+	printf ("O conjunto 1 é: \n");
+	for (int n = 0; n < tam; n++){
+    	printf ("%d ", c1[n]);
+  	}
+
+  	printf ("\n");
+  	printf ("O conjunto 2 é: \n");
+  	for (int n = 0; n < tam; n++){
+    	printf ("%d ", c2[n]);
+  	}
+
+  	printf ("\n");
+	printf ("O conjunto UNIAO do conjunto 1 e 2 é: \n");
+	for (int n = 0; n < tam; n++){
+    	printf ("%d ", c3[n]);
 	}
 }
 
 
-int Uniao (){ 
-	InsertOrder (conj1, tam);
-	InsertOrder (conj2, tam);
-
-}
-
-
-int Intersec (int c1[], int c2[], int tam) { 
-	int c3[tam];
+void Intersec (int tam) { //------------------------------------------------------------------------
+	int c1[tam], c2[tam], c3[tam];
 	int i = 0, j = 0, k = 0; 
+	int b, aux, n;
 
-	ElemAleatorio (c1, tam);
-	ElemAleatorio (c2, tam);
+// os conjuntos c1 e c2 serao dados pelo usuário 
+	InsertOrder (c1, tam);
+	InsertOrder (c2, tam);
 
+//  calculo da interseccao
 	while ((i < tam) && (j < tam)){
 		if (c1[i] < c2[j])
 			i++;
@@ -128,14 +173,27 @@ int Intersec (int c1[], int c2[], int tam) {
 		}
 	}
 
-
+// imprimir os vetores
+	printf ("O conjunto 1 é: \n");
 	for (int n = 0; n < tam; n++){
+    	printf ("%d ", c1[n]);
+  	}
+
+  	printf ("\n");
+  	printf ("O conjunto 2 é: \n");
+  	for (int n = 0; n < tam; n++){
+    	printf ("%d ", c2[n]);
+  	}
+
+  	printf ("\n");
+	printf ("O conjunto INTERSECCAO do conjunto 1 e 2 é: \n");
+	for (int n = 0; n < k; n++){
     	printf ("%d ", c3[n]);
 	}
 }
 
 
-// MAIN PROGRAM ------------------------------------------------------------------------------------------
+// MAIN PROGRAM 
 #include <stdio.h>
 
 int main (){
