@@ -74,7 +74,7 @@ void InsertOrder (int *vetor, int tam){ //--------------------------------------
 		}
 		vetor[j+1] = aux;
 	}
-	// imprimevetor
+	// ImprimeVetor (vetor, tam);
 }
 
 
@@ -93,7 +93,7 @@ int ElemAleatorio (int tam){ //-------------------------------------------------
 		vetor[j+1] = aux;
 	}
 	return vetor;
-	// imprimevetor
+	// ImprimeVetor (vetor, tam);
 }
 
 
