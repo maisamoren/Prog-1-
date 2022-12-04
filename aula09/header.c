@@ -17,6 +17,7 @@ void Imprime (){ //-------------------------------------------------------------
 	printf ("Digite 4 para criar um conjunto de elementos aleatorios. \n");
 	printf ("Digite 5 para ver um conjunto UNIAO de dois outros conjuntos. \n");
 	printf ("Digite 6 para ver um conjunto INTERSECCAO de dois outros conjuntos. \n");
+	printf ("Digite 7 para imprimir o conjunto." \n);
 	printf ("Digite 0 para sair do programa. \n");
 }
 
@@ -25,26 +26,15 @@ int Ler (){ //------------------------------------------------------------------
 	int m;
 	
 	scanf ("%d", &m);
-	return m;
 }
 
-
-// problema com imprimir !!!!!!!!!!!!
+// testar depois
 int ImprimeVetor (int *vetor, int tam){ //---------------------------------------------------------------------------
-	int cha;
 
-	printf ("\n");
-	printf ("Para imprimir o vetor, digite 1. Caso contrário, digite 0. \n");
-	scanf ("%d\n", &cha);
-
-	if (cha == 1){
 		for (int j = 0; j < tam; j++){
     		printf ("%d ", vetor[j]);
 		}
-	}
-	else
 		return 0;
-	return 0;
 }
 
 
